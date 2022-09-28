@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product table</title>
+</head>
+<style>
+.main{
+
+display: flex;
+text-align: right;
+}
+
+</style>
+<body>
+    <div class="main">
+<!-- main div tag -->
+<div class="gap">
+<div>
+    <label>product id</label>
+    <input type="number" id="numb"></input>
+
+</div>
+<div >
+    <label>product name</label>
+    <input type="text" id="name"></input>
+    
+</div>
+<div >
+    <label>product price</label>
+    <input type="number" id="price"></input>
+</div>
+</div>
+<button id="add" onclick="addproduct()">add product</button>
+</div>
+<div>
+<table>
+    <thead>
+        <tr>
+    <th>product name</th>
+    <th>product id</th>
+    <th>product price</th></tr>
+    </thead>
+    <tbody id="data">
+
+    </tbody>
+</table>
+
+
+
+
+</div>
+</body>
+<!-- js is written below for html -->
+<script>
+var array=[];
+function addproduct()
+{
+var numb= document.getElementById("numb").value;
+var name= document.getElementById("name").value;
+var price= document.getElementById("price").value;
+//console.log(numb,name,price);
+var list={proid:numb,pronam:name,propri:price};
+array.push(list);
+//console.log(array);
+let print="";
+array.forEach(element => {
+    print+="<tr><td>"+element.proid+"</td><td>"+element.pronam+"<td/><td>"+element.propri+"</td></tr>";
+});
+document.getElementById("data").innerHTML = print;
+}
+</script>
+</html>
